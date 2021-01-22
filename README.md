@@ -23,3 +23,6 @@ Password: root
 ```
 8. Click Save
 9. You should now be successfully connected to the database.
+
+## Task
+[...]
