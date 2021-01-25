@@ -153,6 +153,8 @@ IMPORTANT: A schema and a database is already given to you. [See Requirements](#
 
 
 # Requirements
+The docker installation below is ONLY for the database. Don't worry about containerizing your application!
+
 Before you get started make sure you have the following requirements fulfilled:
 
 1. [Install Docker](https://docs.docker.com/engine/install/)
