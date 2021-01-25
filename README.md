@@ -11,8 +11,8 @@ IMPORTANT: A schema and a database is already given to you. [See Requirements](#
 ***You are not required to build a frontend*** for this API to visualize it, however, if you do have additional time and you are done early, you are more than welcome to build the frontend and/or to write unit tests.
 
 ## We need the following API endpoints
-* [News](##News)
-* [Tags](##Tags)
+* [News](#News)
+* [Tags](#Tags)
 
 ## News
 * `/news` - GET
