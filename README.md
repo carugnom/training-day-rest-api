@@ -175,9 +175,9 @@ It should produce the following output
 username: test@gmail.com
 password: test123!
 ```
-5. Connect to the database by clicking `Add New Server`
-6. Type in whatever name you want for the connection
-7. click on Connection and fill out the following:
+6. Connect to the database by clicking `Add New Server`
+7. Type in whatever name you want for the connection
+8. click on Connection and fill out the following:
 ```
 Hostname/address: postgres
 Port: 5432
@@ -185,5 +185,5 @@ Maintenance database: root
 Username: root
 Password: root
 ```
-8. Click Save
-9. You should now be successfully connected to the database.
+9. Click Save
+10. You should now be successfully connected to the database.
