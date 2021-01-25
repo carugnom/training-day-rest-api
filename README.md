@@ -22,7 +22,7 @@ IMPORTANT: A schema and a database is already given to you. [See Requirements](#
     {
       "id": 1,
       "headline": "This is a headline",
-      "text"::"This is a text",
+      "text": "This is a text",
       "publication": "New York Times",
       "date": "2021-01-01 00:03:00+00",
       "tags": [
@@ -39,7 +39,7 @@ IMPORTANT: A schema and a database is already given to you. [See Requirements](#
     {
       "id": 2,
       "headline": "This is a headline 2",
-      "text"::"This is a text 2",
+      "text": "This is a text 2",
       "publication": "New York Times",
       "date": "2021-01-01 00:03:00+00",
       "tags": []
@@ -54,7 +54,7 @@ IMPORTANT: A schema and a database is already given to you. [See Requirements](#
   "news": {
       "id": 1,
       "headline": "This is a headline",
-      "text":: "This is a text",
+      "text": "This is a text",
       "publication": "New York Times",
       "date": "2021-01-01 00:03:00+00",
       "tags": [
@@ -92,7 +92,7 @@ IMPORTANT: A schema and a database is already given to you. [See Requirements](#
 {
   "news": {
     "headline": "This is a new headline",
-    "text":: "This is a new text ",
+    "text": "This is a new text ",
     "publication": "New York Times",
     "date": "2021-01-01 00:03:00+00",
     "tags": [
