@@ -2,10 +2,11 @@ import Config
 
 # Configure your database
 config :backend, Backend.Repo,
-  username: "postgres",
-  password: "postgres",
+  adapter: Ecto.Adapters.Postgres,
+  username: "root",
+  password: "root",
   hostname: "localhost",
-  database: "backend_dev",
+  database: "root",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
