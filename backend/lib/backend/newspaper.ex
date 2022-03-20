@@ -6,7 +6,7 @@ defmodule Backend.Newspaper do
   import Ecto.Query, warn: false
   alias Backend.Repo
 
-  alias Backend.Newspaper.News
+  alias Backend.Newspaper.{News, Tag}
 
   @doc """
   Returns the list of news.
@@ -50,8 +50,18 @@ defmodule Backend.Newspaper do
 
   """
   def create_news(attrs \\ %{}) do
+    tags =
+      attrs["tags"]
+      |> Enum.map(fn tag -> String.trim(tag) end)
+      |> Enum.map(
+            fn tag_name -> {:ok, tag} = create_tag(%{name: tag_name})
+            tag 
+          end
+          )
+
     %News{}
     |> News.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:tags, tags)
     |> Repo.insert()
   end
 
