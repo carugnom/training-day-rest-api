@@ -1,6 +1,6 @@
 defmodule BackendWeb.NewsView do
   use BackendWeb, :view
-  alias BackendWeb.NewsView
+  alias BackendWeb.{NewsView, TagView}
 
   def render("index.json", %{news: news}) do
     %{news: render_many(news, NewsView, "news.json")}
@@ -16,7 +16,8 @@ defmodule BackendWeb.NewsView do
       headline: news.headline,
       text: news.text,
       publication: news.publication,
-      date: news.date
+      date: news.date,
+      tags: render_many(news.tags, TagView, "tag.json")
     }
   end
 end

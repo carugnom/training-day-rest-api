@@ -21,6 +21,10 @@ defmodule Backend.Newspaper do
     Repo.all(News)
   end
 
+  def list_news_with_tags do
+    News |> preload(:tags) |> Repo.all()
+  end
+
   @doc """
   Gets a single news.
 
@@ -36,6 +40,8 @@ defmodule Backend.Newspaper do
 
   """
   def get_news!(id), do: Repo.get!(News, id)
+
+  def get_news_with_tags!(id), do: News |> preload(:tags) |> Repo.get!(id)
 
   @doc """
   Creates a news.
