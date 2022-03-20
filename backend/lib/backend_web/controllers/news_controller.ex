@@ -31,9 +31,9 @@ defmodule BackendWeb.NewsController do
   end
 
   def update(conn, %{"id" => id, "news" => news_params}) do
-    news = Newspaper.get_news!(id)
+    news = Newspaper.get_news_with_tags!(id)
 
-    with {:ok, %News{} = news} <- Newspaper.update_news(news, news_params) do
+    with {:ok, %News{} = news} <- Newspaper.update_news_with_tags(news, news_params) do
       render(conn, "show.json", news: news)
     end
   end
