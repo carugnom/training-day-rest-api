@@ -60,7 +60,7 @@ defmodule Backend.Newspaper do
       attrs["tags"]
       |> Enum.map(fn tag -> String.trim(tag) end)
       |> Enum.map(
-            fn tag_name -> {:ok, tag} = create_tag(%{name: tag_name})
+            fn tag_name -> {:ok, tag} = create_tag_if_not_exist(%{name: tag_name})
             tag 
           end
           )
@@ -165,6 +165,16 @@ defmodule Backend.Newspaper do
     %Tag{}
     |> Tag.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def create_tag_if_not_exist(attrs) do
+    tag = Repo.get_by(Tag, name: attrs[:name] || attrs["name"])
+
+    if tag do
+      {:ok, tag}
+    else
+      create_tag(attrs)
+    end
   end
 
   @doc """
