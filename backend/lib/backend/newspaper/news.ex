@@ -3,12 +3,12 @@ defmodule Backend.Newspaper.News do
   import Ecto.Changeset
 
   schema "news" do
-    field :date, :utc_datetime_usec
     field :headline, :string
-    field :publication, :string
     field :text, :string
+    field :publication, :string
+    field :date, :utc_datetime_usec
 
-    timestamps()
+    many_to_many :tags, Backend.Newspaper.Tag, join_through: "news_tags"
   end
 
   @doc false

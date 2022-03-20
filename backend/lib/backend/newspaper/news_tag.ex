@@ -2,12 +2,10 @@ defmodule Backend.Newspaper.NewsTag do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key false
   schema "news_tags" do
-
-    field :news_id, :id
-    field :tag_id, :id
-
-    timestamps()
+    field :news_id, :id, primary_key: true
+    field :tag_id, :id, primary_key: true
   end
 
   @doc false

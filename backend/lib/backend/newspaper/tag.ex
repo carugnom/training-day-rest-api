@@ -4,8 +4,6 @@ defmodule Backend.Newspaper.Tag do
 
   schema "tags" do
     field :name, :string
-
-    timestamps()
   end
 
   @doc false
