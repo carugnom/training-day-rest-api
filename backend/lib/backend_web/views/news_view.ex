@@ -10,6 +10,10 @@ defmodule BackendWeb.NewsView do
     %{news: render_one(news, NewsView, "news.json")}
   end
 
+  def render("show_tags.json", %{news: news}) do
+    %{tags: render_many(news.tags, TagView, "tag.json")}
+  end
+
   def render("news.json", %{news: news}) do
     %{
       id: news.id,
