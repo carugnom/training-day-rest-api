@@ -9,6 +9,7 @@ defmodule BackendWeb.Router do
     pipe_through :api
 
     resources "/news", NewsController, except: [:new, :edit]
+    resources "/tags", TagController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development

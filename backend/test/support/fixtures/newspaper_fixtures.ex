@@ -20,4 +20,18 @@ defmodule Backend.NewspaperFixtures do
 
     news
   end
+
+  @doc """
+  Generate a tag.
+  """
+  def tag_fixture(attrs \\ %{}) do
+    {:ok, tag} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> Backend.Newspaper.create_tag()
+
+    tag
+  end
 end
