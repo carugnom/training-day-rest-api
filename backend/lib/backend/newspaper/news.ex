@@ -8,7 +8,7 @@ defmodule Backend.Newspaper.News do
     field :publication, :string
     field :date, :utc_datetime_usec
 
-    many_to_many :tags, Backend.Newspaper.Tag, join_through: "news_tags", on_replace: :delete
+    many_to_many :tags, Backend.Newspaper.Tag, join_through: "news_tags", on_replace: :delete, on_delete: :delete_all
   end
 
   @doc false
