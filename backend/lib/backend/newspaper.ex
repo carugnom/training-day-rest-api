@@ -90,19 +90,23 @@ defmodule Backend.Newspaper do
   end
 
   def update_news_with_tags(%News{} = news, attrs) do
-    tags =
-      attrs["tags"]
-      |> Enum.map(fn tag -> String.trim(tag) end)
-      |> Enum.map(
-            fn tag_name -> {:ok, tag} = create_tag_if_not_exist(%{name: tag_name})
-            tag 
-          end
-          )
+    if is_nil(attrs["tags"]) do
+      update_news(news, attrs)
+    else
+      tags =
+        attrs["tags"]
+        |> Enum.map(fn tag -> String.trim(tag) end)
+        |> Enum.map(
+              fn tag_name -> {:ok, tag} = create_tag_if_not_exist(%{name: tag_name})
+              tag 
+            end
+            )
 
-    news
-    |> News.changeset(attrs)
-    |> Ecto.Changeset.put_assoc(:tags, tags)
-    |> Repo.update()
+      news
+      |> News.changeset(attrs)
+      |> Ecto.Changeset.put_assoc(:tags, tags)
+      |> Repo.update()
+    end
   end
 
   @doc """
