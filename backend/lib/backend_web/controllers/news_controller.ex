@@ -7,7 +7,7 @@ defmodule BackendWeb.NewsController do
   action_fallback BackendWeb.FallbackController
 
   def index(conn, _params) do
-    news = Newspaper.list_news_with_tags()
+    news = Newspaper.list_news()
     render(conn, "index.json", news: news)
   end
 
@@ -21,19 +21,19 @@ defmodule BackendWeb.NewsController do
   end
 
   def show(conn, %{"id" => id}) do
-    news = Newspaper.get_news_with_tags!(id)
+    news = Newspaper.get_news!(id)
     render(conn, "show.json", news: news)
   end
 
   def show_tags(conn, %{"id" => id}) do
-    news = Newspaper.get_news_with_tags!(id)
+    news = Newspaper.get_news!(id)
     render(conn, "show_tags.json", news: news)
   end
 
   def update(conn, %{"id" => id, "news" => news_params}) do
-    news = Newspaper.get_news_with_tags!(id)
+    news = Newspaper.get_news!(id)
 
-    with {:ok, %News{} = news} <- Newspaper.update_news_with_tags(news, news_params) do
+    with {:ok, %News{} = news} <- Newspaper.update_news(news, news_params) do
       render(conn, "show.json", news: news)
     end
   end

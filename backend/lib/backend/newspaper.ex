@@ -18,10 +18,6 @@ defmodule Backend.Newspaper do
 
   """
   def list_news do
-    Repo.all(News)
-  end
-
-  def list_news_with_tags do
     News |> preload(:tags) |> Repo.all()
   end
 
@@ -39,9 +35,7 @@ defmodule Backend.Newspaper do
       ** (Ecto.NoResultsError)
 
   """
-  def get_news!(id), do: Repo.get!(News, id)
-
-  def get_news_with_tags!(id), do: News |> preload(:tags) |> Repo.get!(id)
+  def get_news!(id), do: News |> preload(:tags) |> Repo.get!(id)
 
   @doc """
   Creates a news.
@@ -84,14 +78,10 @@ defmodule Backend.Newspaper do
 
   """
   def update_news(%News{} = news, attrs) do
-    news
-    |> News.changeset(attrs)
-    |> Repo.update()
-  end
-
-  def update_news_with_tags(%News{} = news, attrs) do
     if is_nil(attrs["tags"]) do
-      update_news(news, attrs)
+      news
+      |> News.changeset(attrs)
+      |> Repo.update()
     else
       tags =
         attrs["tags"]
