@@ -26,6 +26,8 @@ config :backend, BackendWeb.Endpoint,
   secret_key_base: "0SIjTcJYqnx3SYuAjYnyzbfYbTRRxVXRXw30oiXK2H8XTqpJd6tsMqAYVMshCTpQ",
   watchers: []
 
+config :backend, origins: ["http://localhost:3000"]
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
